@@ -1,0 +1,5 @@
+CREATE TABLE admin_role (
+    id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL UNIQUE,
+    descricao VARCHAR(255)
+);
