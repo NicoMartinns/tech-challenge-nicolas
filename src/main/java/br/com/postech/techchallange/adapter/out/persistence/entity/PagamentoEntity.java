@@ -10,8 +10,6 @@ import java.time.LocalDateTime;
 @Table(name = "pagamento")
 @Data
 @Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class PagamentoEntity {
 
 	@Id
@@ -23,4 +21,5 @@ public class PagamentoEntity {
 	private String metodoPagamento;
 	private Long idStatusPagamento;
 	private LocalDateTime dataPagamento;
+	private String initPoint;
 }

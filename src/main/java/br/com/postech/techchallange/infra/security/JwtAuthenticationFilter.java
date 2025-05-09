@@ -36,7 +36,13 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 		String requestURI = request.getRequestURI();
 		logger.info("[JWT Filter] Nova requisição recebida: {}", requestURI);
 
-		String token = parseToken(request);
+		String token = this.parseToken(request);
+		
+		if (requestURI.contains("/open")) {
+			logger.info("Endpoint não necessita de autorização, continuando...");
+			filterChain.doFilter(request, response);
+			return;
+		}
 
 		try {
 			if (token == null) {
@@ -61,7 +67,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
 			Claims claims = jwtProvider.getClaims(token);
 			String email = claims.getSubject();
-			List<String> roles = claims.get("roles", List.class);
+			List<?> roles = claims.get("roles", List.class);
 
 			List<SimpleGrantedAuthority> authorities = roles.stream()
 					.map(role -> new SimpleGrantedAuthority("ROLE_" + role))
