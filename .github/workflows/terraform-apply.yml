@@ -22,6 +22,7 @@ jobs:
       TF_VAR_db_password: ${{ secrets.TF_VAR_DB_PASSWORD }}
       TF_VAR_db_username: ${{ secrets.TF_VAR_DB_USERNAME }}
       TF_VAR_public_key: ${{ secrets.TF_VAR_PUBLIC_KEY }}
+      TESTE: ${{ secrets.TESTE }}
 
     steps:
       - name: Checkout repository
@@ -44,6 +45,7 @@ jobs:
           echo "DB password: $TF_VAR_db_password"
           echo "DB username: $TF_VAR_db_username"
           echo "Public key: $TF_VAR_public_key"
+          echo "Teste: $TESTE"
 
       - name: List all TF_VAR environment variables
-        run: env | grep TF_VAR
+        run: env | grep TF_VAR 
