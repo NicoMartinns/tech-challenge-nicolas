@@ -45,3 +45,5 @@ jobs:
           echo "DB username: $TF_VAR_db_username"
           echo "Public key: $TF_VAR_public_key"
 
+      - name: List all TF_VAR environment variables
+        run: env | grep TF_VAR
