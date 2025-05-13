@@ -38,10 +38,3 @@ jobs:
 
 #      - name: Terraform Apply
 #        run: terraform apply -auto-approve
-
-      - name: Print TF_VAR
-        run: |
-          echo "DB password: $TF_VAR_db_password"
-          echo "DB username: $TF_VAR_db_username"
-          echo "Public key: $TF_VAR_public_key"
-
