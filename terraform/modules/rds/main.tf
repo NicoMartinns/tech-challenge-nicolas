@@ -6,6 +6,7 @@ resource "aws_db_subnet_group" "tech_db_subnet_group" {
 }
 
 resource "aws_db_instance" "tech_db" {
+  db_name                = "techdb" 
   allocated_storage      = 20
   engine                 = "mysql"
   engine_version         = "8.0"
