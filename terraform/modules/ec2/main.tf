@@ -15,7 +15,7 @@ resource "aws_key_pair" "tech_ssh_key" {
 
 resource "aws_instance" "tech_app" {
   ami                         = data.aws_ami.amzn-linux-2023-ami.id
-  instance_type               = "t2.micro"
+  instance_type               = "t3.small"
   key_name                    = aws_key_pair.tech_ssh_key.key_name
   subnet_id                   = var.app_subnet_id
   vpc_security_group_ids      = [var.app_sg_id]
