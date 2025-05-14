@@ -63,5 +63,5 @@ jobs:
           echo "$EC2_SSH_KEY" > key.pem
           chmod 600 key.pem
           ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@${{ env.INSTANCE_IP }} '
-            cd /home/ec2-user/app/docker && docker compose up -d
+            cd /home/ec2-user/app/docker && docker-compose up -d --build
           '
